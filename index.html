@@ -1,44 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 
 <body>
-    <div class="container">
-        <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
-            <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
-          </nav>
-    </div>
+  <div class="container">
+    <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
+      <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+    </nav>
+  </div>
 
-    <div class="container">
-        <p>Search for a City:</p>
-        <form>
-            <input class="form" type="search" id="cityInput">
-        </form><br>
+  <div class="container">
+    <br>
+    <form>
+      <input class="form" type="search" id="cityInput" placeholder="search for a city">
+      <button class="btn btn-success" id="searchSubmit" type="submit">GO!
+      </button>
+      <!-- <i class="fas fa-search-location"></i> -->
 
-   <div class="row">
-       <div class="col-md-3">
-        <ul class="list-group">
-            <li type="button" class="list-group-item">Dallas</li>
-            <li type="button" class="list-group-item">Austin</li>
-            <li type="button" class="list-group-item">New York</li>
-            <li type="button" class="list-group-item">Miami</li>
-            <li type="button" class="list-group-item">Los Angeles</li>
-          </ul>
-       </div> 
-       <div class="col-md-8"></div>
-   
-    </div>
-    
+    </form><br>
 
+    <section class="row align-content-md-stretch">
+      <div class="col-md-2">
+        <ul class="list-group shadow">
+          <li class="list-group-item">Dallas</li>
+          <li class="list-group-item">Austin</li>
+          <li class="list-group-item">New York</li>
+          <li class="list-group-item">Miami</li>
+          <li class="list-group-item">Los Angeles</li>
+        </ul>
+      </div>
+      <div class="col-md-10">
+        <div class="jumbotron jumbotron-fluid shadow">
+          <h1 class="display-4" id="currentCity">City Name</h1><img id="current-day-image"></img>
+          <p class="lead">Temperature: <span id="currentTemp"></span></p>
+          <p class="lead">Humidity: <span id="currentHumidity"></span></p>
+          <p class="lead">Wind Speed: <span id="currentWind"></span></p>
+          <p class="lead">UV Index: <span id="currentUVindex"></span></p>
+        </div>
+        <h2>5-Day Forecast</h2>
+        <div class="row d-flex justify-content-between">
+          <div class="col-md-2 col-sm-2">
+            <div class="card shadow">
+              <div class="card-body">
+                <h4 class="card-title" id="first-day"></h4>
+                <img class="img-fluid px-4 py-2" id="first-day-image"></img>
+                <h6 class="card-subtitle mb-2">Temperature: <span id="first-day-temp"></span></h6>
+                <h6 class="card-subtitle mb-2">Humidity: <span id="first-day-humid"></span></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2">
+            <div class="card shadow">
+              <div class="card-body">
+                <h4 class="card-title" id="second-day"></h4>
+                <img class="img-fluid px-4 py-2" id="second-day-image"></img>
+                <h6 class="card-subtitle mb-2">Temperature: <span id="second-day-temp"></span></h6>
+                <h6 class="card-subtitle mb-2">Humidity: <span id="second-day-humid"></span></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2">
+            <div class="card shadow">
+              <div class="card-body">
+                <h5 class="card-title" id="third-day"></h5>
+                <img class="img-fluid px-4 py-2" id="third-day-image"></img>
+                <h6 class="card-subtitle mb-2">Temperature: <span id="third-day-temp"></span></h6>
+                <h6 class="card-subtitle mb-2">Humidity: <span id="third-day-humid"></span></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2">
+            <div class="card shadow">
+              <div class="card-body">
+                <h5 class="card-title" id="fourth-day"></h5>
+                <img class="img-fluid px-4 py-2" id="fourth-day-image"></img>
+                <h6 class="card-subtitle mb-2">Temperature: <span id="fourth-day-temp"></span></h6>
+                <h6 class="card-subtitle mb-2">Humidity: <span id="fourth-day-humid"></span></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2">
+            <div class="card shadow">
+              <div class="card-body">
+                <h5 class="card-title" id="fifth-day"></h5>
+                <img class="img-fluid px-4 py-2" id="fifth-day-image"></img>
+                <h6 class="card-subtitle mb-2">Temperature: <span id="fifth-day-temp"></span></h6>
+                <h6 class="card-subtitle mb-2">Humidity: <span id="fifth-day-humid"></span></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 </body>
+
 </html>
