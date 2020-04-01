@@ -1,12 +1,8 @@
 p{
 font-family:'Noto Sans KR', sans-serif;
-font-size: 15pt;
+font-size: 20pt;
 }
-.h1{
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: bolder;
-    font-size: 30pt;
-}
+
 
 i{
     color: white;
@@ -28,4 +24,37 @@ i{
 .container {
     min-width: 1500px;
 
+}
+
+#current-day-image{
+
+    max-height: 200px;
+    max-width: 200px;
+    /* overflow: auto; */
+    /* position: absolute;
+    margin-left: 300px;
+    margin-top: -120px; */
+    
+}
+
+#current-day{
+
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+#currentCity{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    font-size: 40pt;
+    padding: 5px;
+}
+
+h2{
+
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-bottom: 30px;
 }

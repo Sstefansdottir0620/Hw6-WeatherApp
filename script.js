@@ -26,7 +26,6 @@ function search(){
     
     // Create CODE HERE to transfer content to HTML
     $("#currentCity").text(response.name);
-    $("#current-day-image").attr()
     $("#currentTemp").text(response.main.temp);
     $("#currentHumidity").text(response.main.humidity);
     $("#currentWind").text(response.wind.speed);
@@ -37,10 +36,15 @@ function search(){
   });
 };
 function printForeCast(foreCastArray){
+  console.log(foreCastArray);
   for (let i = 0; i <= foreCastArray.length; i++) {
-    const array = ["first", "second", "third", "fourth", "fifth"]
-  
-  $(`#${array[i]}-day`).text(foreCastArray[i].dt_txt.split(" ")[0].toString());
+    const array = ["current", "first", "second", "third", "fourth", "fifth"]
+    const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; 
+
+    // .split(" ")[0].toString());
+    var d = new Date(foreCastArray[i].dt * 1000);
+    var dateText = `${weekDays[d.getDay()]}`
+  $(`#${array[i]}-day`).text(dateText);
   $(`#${array[i]}-day-temp`).text((Math.floor(foreCastArray[i].main.temp - 273.15)*1.80 +32));
   $(`#${array[i]}-day-humid`).text(foreCastArray[i].main.humidity);
     console.log(foreCastArray[i].weather[0].main)
@@ -60,13 +64,6 @@ function printForeCast(foreCastArray){
   }
 
   }
-  // var imgURL = response.Poster;
-
-  // // Creating an element to hold the image
-  // var image = $("<img>").attr("src", imgURL);
-
-  // // Appending the image
-  // movieDiv.append(image);
 
 }
 
@@ -76,13 +73,15 @@ $.ajax({
   url: queryFiveDayURL,
   method: "GET"
 }).then(response => {
-  let foreCast = [response.list[3], response.list[11], response.list[19], response.list[27], response.list[35]];
+  console.log(response.list);
+  let foreCast = [response.list[3], response.list[11], response.list[19], response.list[27], response.list[35], response.list[39]];
   // $("#first-day").text(response);
   // let firstDay = response.value;
   // (Math.floor(response.main.temp - 273.15)*1.80 +32);
   printForeCast(foreCast);
 })
 };
+// response.list[39]
 
 function UVrequest(lon, lat){
   let queryUV = `http://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`;

@@ -25,11 +25,10 @@
       <input class="form" type="search" id="cityInput" placeholder="search for a city">
       <button class="btn btn-success" id="searchSubmit" type="submit">GO!
       </button>
-      <!-- <i class="fas fa-search-location"></i> -->
+    </form>
+    <br>
 
-    </form><br>
-
-    <section class="row align-content-md-stretch">
+  <section class="row align-content-md-stretch">
       <div class="col-md-2">
         <ul class="list-group shadow">
           <li class="list-group-item">Dallas</li>
@@ -39,16 +38,29 @@
           <li class="list-group-item">Los Angeles</li>
         </ul>
       </div>
-      <div class="col-md-10">
-        <div class="jumbotron jumbotron-fluid shadow">
-          <h1 class="display-4" id="currentCity">City Name</h1><img id="current-day-image"></img>
-          <p class="lead">Temperature: <span id="currentTemp"></span></p>
-          <p class="lead">Humidity: <span id="currentHumidity"></span></p>
-          <p class="lead">Wind Speed: <span id="currentWind"></span></p>
-          <p class="lead">UV Index: <span id="currentUVindex"></span></p>
-        </div>
-        <h2>5-Day Forecast</h2>
-        <div class="row d-flex justify-content-between">
+    
+   	<div class="col-md-10">
+			<div class="row-md-12">
+				<div class="jumbotron shadow d-flex justify-content-between">
+					<div class="col-md-4">
+					  <div class="row-md-12"><span id="currentCity">City Name</span></div>
+					  <div class="row-md-12"></div><span id="current-day"></span></div>
+					  <div class="col-md-4"><img id="current-day-image"></div>		  
+					  <div class="col-md-4">
+						  <p class="lead">Temperature: <span id="currentTemp"></span></p>
+						  <p class="lead">Humidity: <span id="currentHumidity"></span></p>
+						  <p class="lead">Wind Speed: <span id="currentWind"></span></p>
+						  <p class="lead">UV Index: <span id="currentUVindex"></span></p>
+					  </div>
+				  </div>	
+			  </div>
+       </div>
+    </div> 
+  </section>  
+        
+    <section class="container">
+      <div class="row"><h2>5-Day Forecast</h2></div>
+        <section class="row-md-12 d-flex justify-content-between">
           <div class="col-md-2 col-sm-2">
             <div class="card shadow">
               <div class="card-body">
@@ -88,7 +100,7 @@
                 <h6 class="card-subtitle mb-2">Humidity: <span id="fourth-day-humid"></span></h6>
               </div>
             </div>
-          </div>
+          </div> 
           <div class="col-md-2 col-sm-2">
             <div class="card shadow">
               <div class="card-body">
@@ -99,10 +111,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </section>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
 
